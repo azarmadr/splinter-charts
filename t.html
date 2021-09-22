@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./data/jquery.min.js"></script>
+    <script src="./data/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./data/bootstrap.min.css">
+    <link rel="stylesheet" href="./splinter.css">
+    <title>SplinterLands Battles - Team Scores - Chart.js</title>
+  </head>
+  <body>
+    <div class="battle">
+      <button type="button" id="battle-id">Battle Id</button>
+      <button type="button" id="opp-team" style="display:none">Opp Team</button>
+      <button type="button" id="win-team" style="display:none">Winning Teams</button>
+      <label for="White"> <input type="checkbox" id="White" name="White" > Life </label>
+      <div id="battle-id-response"></div>
+      <div class="card-wrapper"></div>
+    </div>
+  </body>
+  <script>
+    var battles = $.ajax({ url: "http://localhost:3000/Battles", async: false, dataType: 'json' }).responseJSON;
+    var cards = $.ajax({ url: "http://localhost:3000/Cards", async: false, dataType: 'json' }).responseJSON;
+  </script>
+  <script src="./chart.js"></script>
+  <script src="./battle.js"></script>
+</html>

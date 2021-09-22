@@ -1,0 +1,82 @@
+body{
+  text-align: center;
+  width: 99%;
+  height: 100%;
+}
+.card-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(285px,max-content));
+  gap: 10px;
+  /* grid-auto-flow: dense; */
+  /* grid-template-columns: repeat(auto-fit, minmax(max-content,144px)); */
+}
+
+
+.card-wrapper>div {background-color: gainsboro;text-align: left;}
+.card-wrapper div.model-loser {
+    grid-row: 2;
+    background-color: bisque;
+    grid-column: 1;
+}
+.card-wrapper div.opp-team {
+    background-color: mistyrose;
+}
+
+/*sub{position: relative;}
+sup {    vertical-align: top;}
+span.subup sup { position: absolute;left: 0;}*/
+.Summoner{
+    white-space: nowrap;
+    line-height: 1.3;
+    text-decoration: underline;
+}
+.Monster{
+    /* white-space: nowrap; */
+    line-height: 1.3;
+}
+.subup {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+    vertical-align: middle;
+    font-size: x-small;
+}
+pre {text-align: left;background-color: transparent;}
+div .gold{background-color: Gold;}
+div .Blue{color: Blue;}
+div .Gray{color: gray;}
+div .Red{color: red;}
+div .Black{color: magenta;}
+div.Green {color: green;}
+div.White {color: maroon;}
+div.Gold {color: gold;}
+/*
+span.speed { background-image: url('./data/img/speed.png'); }
+span.armor { background-image: url('./data/img/defense.png'); }
+span.health { background-image: url('./data/img/health.png'); }
+span.ranged { background-image: url('./data/img/ranged-attack.png'); }
+span.attack { background-image: url('./data/img/melee-attack.png'); }
+span.magic { background-image: url('./data/img/magic-attack.png'); }
+*/
+span.speed, span.armor, span.health, span.ranged, span.attack, span.magic {
+  /* position: unset; */
+  background-size: contain;
+  image-rendering: -webkit-optimize-contrast;
+  color: white;
+  mix-blend-mode: exclusion;
+  -webkit-text-stroke: thin;
+  font-size: small;
+}
+
+
+span.abilities {
+    font-size: smaller;
+}
+
+span.sub {}
+
+span.stats {float: right;}
+
+div.unplayable {
+    background-color: mediumaquamarine;
+}

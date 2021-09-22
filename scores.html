@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!--script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"> </script-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <title>SplinterLands Battles - Team Scores - Chart.js</title>
+  </head>
+  <style>
+body{
+  text-align: center;
+  width: 99%;
+  height: 100%;
+}
+.chart-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: column dense;
+  grid-template-areas:
+    "team team team summoner summoner"
+    "team team team summoner summoner"
+    "team team team monsters monsters"
+    "battle battle battle monsters monsters";
+}
+.team { grid-area: team; }
+.summoner { grid-area: summoner; }
+.monsters { grid-area: monsters; }
+.battle { grid-area: battle; }
+  </style>
+  <body>
+    <ul class="nav nav-pills">
+      <li class="active"><a data-toggle="pill" href="#teamScore">Team Analysis</a></li>
+      <li><a data-toggle="pill" href="#cardScore">Card Analysis</a></li>
+    </ul>
+    <div class="tab-content">
+      <div id="teamScore" class="tab-pane fade in active">
+        <label for="mana-cap">Mana Cap: </label><label id="mana-cap"></label>
+        <br>
+        <label for="type">Type: <label id="type"></label></label>
+        <label for="sort-by-count"> <input type="checkbox" id="sort-by-count" name="sort-by-count" > Sort By Count </label>
+        <label for="complete_list"> <input type="checkbox" id="complete_list" name="complete_list" > View all Data </label>
+        <br>
+        <div class="chart-container">
+          <div class="team"><canvas id="teamChart"></canvas></div>
+          <div class="summoner"><canvas id="summonerChart"></canvas></div>
+          <div class="monsters"><canvas id="monstersChart"></canvas></div>
+          <div class="battle">
+            <button type="button" id="battle-id">Battle Id</button>
+            <div id="battle-id-response"><p>a</p></div>
+          </div>
+        </div>
+      </div>
+      <div id="cardScore" class="tab-pane fade">
+        <label for="cardType"><label id="cardType"></label></label>
+        <label for="ownType">Ownership: </label><label id="ownType"></label>
+        <label for="byCount"> <input type="checkbox" id="byCount" name="byCount" > Sort By Count </label>
+        <label for="full-list"> <input type="checkbox" id="full-list" name="full-list" > View all Data </label>
+        <div class="container">
+          <div class="cards"><canvas id="cardChart"></canvas></div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="./chart.js"></script>
+  <script src="./scoresChart.js"></script>
+  <script src="./cardScore.js"></script>
+  <script src="./battle.js"></script>
+</html>
